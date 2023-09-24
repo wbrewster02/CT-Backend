@@ -1,15 +1,15 @@
 const mongoose = require('mongoose')
 
-const userSchema = new mongoose.Schema({
+const SpringSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true
     },
-    age: {
-        type: Number,
+    email: {
+        type: String,
         required: true,
-        min: 18
+        
     },
 })
 
-module.exports = mongoose.model('User', userSchema)
+module.exports = mongoose.model('Spring', SpringSchema)
