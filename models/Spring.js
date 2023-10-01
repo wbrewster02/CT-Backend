@@ -6,15 +6,15 @@ const SpringSchema = new mongoose.Schema({
         required: true
     },
     lotdate: {
-        type: Date,
+        type: String,
         required: true
     },
     type: {
         type: String,
         required: true
     },
-    initialCount: {
-        type: Number,
+    initialcount: {
+        type: String,
         required: true
     }
 

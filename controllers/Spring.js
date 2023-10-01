@@ -2,8 +2,8 @@ const Spring = require('../models/Spring')
 
 async function getAllSpring(req, res) {
     try {
-        const Spring = await Spring.find()
-        res.json(Spring)
+        const spring = await Spring.find()
+        res.json(spring)
     } catch (error) {
         console.log('error fetching Spring:', error)
         res.json({'message': 'error fetching Spring'})
@@ -13,8 +13,8 @@ async function getAllSpring(req, res) {
 async function getSpringById(req, res) {
     try {
         const { id } = req.params
-        const Spring = await Spring.findById(id)
-        res.json(Spring)
+        const spring = await Spring.findById(id)
+        res.json(spring)
     } catch (error) {
         console.log('error fetching Spring by id:', error)
         res.json({ 'message': 'error fetching Spring' })
@@ -23,7 +23,7 @@ async function getSpringById(req, res) {
 
 async function createSpring(req, res) {
     try {
-        if (!req.body.image) req.body.image = undefined
+        // if (!req.body.image) req.body.image = undefined
         await new Spring(req.body).save()
         res.status(201).json({ 'message': 'Spring created' })
     } catch (error) {
