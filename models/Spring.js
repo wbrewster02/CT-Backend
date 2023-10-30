@@ -16,10 +16,6 @@ const SpringSchema = new mongoose.Schema({
     initialcount: {
         type: String,
         required: true
-    },
-    subgroup: {
-        type: String,
-        required: true
     }
 
 })
