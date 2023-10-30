@@ -4,7 +4,9 @@ const router = require('express').Router()
 const {
     getAllSpring,
     getSpringById,
-    createSpring
+    createSpring,
+    updateSpringById,
+    deleteSpringById
 
 } = require('../controllers/Spring')
 
@@ -18,7 +20,9 @@ router.get('/:id', getSpringById)
 router.post('/', createSpring)
 
 //PUT /:id update by id
+router.put('/:id', updateSpringById)
 
 // DELETE /:id bread by id
+router.delete('/:id', deleteSpringById)
 
 module.exports = router

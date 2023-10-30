@@ -32,8 +32,33 @@ async function createSpring(req, res) {
     }
 }
 
+async function updateSpringById(req, res) {
+    try {
+        const { id } = req.params
+        if (!req.body.image) req.body.image = undefined
+        await Spring.findByIdAndUpdate(id, req.body)
+        res.status(204).json({ 'message': 'spring updated' })
+    } catch (error) {
+        console.log('error updating spring:', error)
+        res.json({ 'message': 'error updating spring' })
+    }
+}
+
+async function deleteSpringById(req, res) {
+    try {
+        const { id } = req.params
+        await Spring.findByIdAndDelete(id)
+        res.status(204).json({ 'message': 'spring deleted' })
+    } catch (error) {
+        console.log('error deleting spring:', error)
+        res.json({ 'message': 'error deleting spring' })
+    }
+}
+
 module.exports = {
     getAllSpring,
     getSpringById,
-    createSpring
+    createSpring,
+    updateSpringById,
+    deleteSpringById
 }
